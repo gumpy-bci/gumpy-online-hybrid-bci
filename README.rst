@@ -15,8 +15,8 @@ External Links
 * gumpy on github: https://www.github.com/gumpy-bci
 
 
-gumpy-deeplearning core developers and contributors
-======================================
+gumpy-online-hybrid-bci core developers and contributors
+========================================================
 * Zied Tayeb
 * Nicolai Waniek, www.github.com/rochus
 * Nejla Ghaboosi
