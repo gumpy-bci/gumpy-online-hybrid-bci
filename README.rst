@@ -22,6 +22,7 @@ gumpy-online-hybrid-bci core developers and contributors
 * Nejla Ghaboosi
 * Juri Fedjae
 * Leonard Richly
+* Jonas Braun
 
 
 License
