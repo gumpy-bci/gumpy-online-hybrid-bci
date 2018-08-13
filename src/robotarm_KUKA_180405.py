@@ -23,20 +23,18 @@ class RobotArm():
         message = bytes(chr(int(2)),'UTF-8')
         self.sock.sendto(message, self.server_address)
         time.sleep(3)
-        
-        
-        
-###############################################################################
+
+
+
     def do_posture(self,pos):
         if pos == 2:
             pos += 1
         message = bytes(chr(int(pos)),'UTF-8')
         self.sock.sendto(message, self.server_address)
         time.sleep(3)
-        
-        
-        
-###############################################################################
+
+
+
     def return_home(self):
         message = bytes(chr(int(2)),'UTF-8')
         self.sock.sendto(message, self.server_address)
@@ -44,20 +42,18 @@ class RobotArm():
 
 
 
-###############################################################################        
     def shutdown(self):
         self.return_home()
         message = bytes(chr(int(4)),'UTF-8')
         self.sock.sendto(message, self.server_address)
         print('Closing UDP socket')
         self.sock.close()
-        
-    
-    
- ###############################################################################   
+
+
+
 if __name__ == '__main__':
     myarm = RobotArm()
-    
+
     myarm.do_posture(0)
     time.sleep(5)
     myarm.return_home()
@@ -69,5 +65,5 @@ if __name__ == '__main__':
     myarm.do_posture(2)
     time.sleep(5)
     myarm.return_home()
-    
+
     myarm.shutdown()

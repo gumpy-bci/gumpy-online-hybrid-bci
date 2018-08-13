@@ -7,7 +7,6 @@ import numpy as np
 import scipy.io
 from scipy.signal import butter, lfilter, spectrogram
 import matplotlib.pyplot as plt
-import data_processing
 import keras
 from keras.utils import plot_model
 from sklearn.model_selection import train_test_split
@@ -85,7 +84,7 @@ if __name__ == '__main__':
     print(info.as_xml())
 
     while True:
-    	
+
         x_streamed, time = inlet.pull_sample()
         X = np.array(x_streamed)
         X_test = np.zeros((1,3,1024))
@@ -93,21 +92,17 @@ if __name__ == '__main__':
         X_test[0, 1, :] = X[1024:2048]
         X_test[0, 2, :] = X[2048:3072]
         print(X_test.shape)
-            
-    
+
+
         ####################I get the EEG signals two 4s-signal of 3 channels for one 10s-trails.
         ###################
-    
-    
-    
+
         ##########this is your classifier I use the threshold. you'd better look for the value of a ##########and b to change the threshold.
-    
-    
-    
+
         model2 = keras.models.load_model('CNN_STFT__C2_run4monitoring.h5',custom_objects={'Spectrogram': kapre.time_frequency.Spectrogram})
-    	
+
         classes = model2.predict(X_test)
-    
+
         a = classes[:, 0]
         print(a)
         b = classes[:, 1]
@@ -116,8 +111,8 @@ if __name__ == '__main__':
         if (c>4):
         	os.system("./control katana6M180.cfg 192.168.1.4 left")
         elif(0.5<c<4):
-    
+
         	os.system("./control katana6M180.cfg 192.168.1.4 null")
         else:
     	    os.system("./control katana6M180.cfg 192.168.1.4 right")
-    
+

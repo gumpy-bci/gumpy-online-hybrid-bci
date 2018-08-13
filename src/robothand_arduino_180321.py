@@ -16,21 +16,19 @@ class RobotHand():
         ### port is COM4 on recording PC and COM6 on Jonas' PC
         ### baudrate has to be the one defined in the Arduino Sketch
 
-        self.serialPort = serial.Serial(port, baudrate) 
-        
+        self.serialPort = serial.Serial(port, baudrate)
+
         ### make sure that it is newly opened
         if self.serialPort.isOpen():
             self.serialPort.close()
-        self.serialPort.open()        
-        
+        self.serialPort.open()
+
         ### initialise hand to open hand
         self.serialPort.write(bytes(chr(0),'UTF-8'))
         print(self.serialPort.readline())
         time.sleep(5)
-        
 
 
-###############################################################################        
     def do_posture(self, posture=0, duration=5):
         ### do posture for a duration and then relax for the same time
         ### make sure both high and low force postures give the same outcome
@@ -44,14 +42,10 @@ class RobotHand():
         time.sleep(duration)
 
 
-
-###############################################################################        
     def shutdown(self):
         self.serialPort.close()
-        
 
 
-###############################################################################        
 if __name__ == '__main__':
     robothand = RobotHand("COM6")
     print('RobotHand is initialised. Now doing postures 0,1,2')

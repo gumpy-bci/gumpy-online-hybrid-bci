@@ -18,7 +18,6 @@ External Links
 gumpy-online-hybrid-bci core developers and contributors
 ========================================================
 * Zied Tayeb
-* Nicolai Waniek, www.github.com/rochus
 * Nejla Ghaboosi
 * Juri Fedjae
 * Leonard Richly
