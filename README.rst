@@ -22,6 +22,7 @@ gumpy-online-hybrid-bci core developers and contributors
 * Juri Fedjae
 * Leonard Richly
 * Jonas Braun
+* Nicolai Waniek
 
 
 License
