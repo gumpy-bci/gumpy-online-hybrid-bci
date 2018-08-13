@@ -1,15 +1,13 @@
 import math
 import numpy as np
-import processing_filters as pf
-#from scipy.misc import imresize # requires Pillow
 from scipy.signal import spectrogram
+import gumpy.signal as signal
 
 class filterbank:
 
 	def __init__(self, lowcut=2, highcut=60, order=3, fs=256):
-		self.bandPass = pf.butter_bandpass(lowcut,highcut,order,fs)
-		self.notch = pf.butter_bandstop()
-		#notch = pf.notch()
+		self.bandPass = signal.butter_bandpass(lowcut,highcut,order,fs)
+		self.notch = signal.butter_bandstop()
 
 	def process(self, data):
 		buf = self.bandPass.process(data)
